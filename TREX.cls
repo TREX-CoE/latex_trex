@@ -1,11 +1,15 @@
 \ProvidesClass{TREX}
-\LoadClass[a4paper,twoside,final,10pt,headings=small]{report}
+\LoadClass[a4paper,twoside,final,12pt,headings=small]{report}
 
+\usepackage[showframe,paper=a4paper,
+top=1.18in,bottom=1in,right=0.75in,left=0.75in]{geometry}% http://ctan.org/pkg/geometry
 \usepackage[utf8]{inputenc}
 \usepackage{lastpage}
-\usepackage{scrhack}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
 \usepackage[printonlyused,nohyperlinks]{acronym}
 
 
