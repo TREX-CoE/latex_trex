@@ -11,7 +11,7 @@ top=1.18in,bottom=1in,right=0.75in,left=0.75in]{geometry}% http://ctan.org/pkg/g
 \usepackage{amssymb}
 \usepackage{titlesec}
 \usepackage{xcolor}
-
+\usepackage{colortbl}
 
 \renewcommand{\familydefault}{\sfdefault}
 
