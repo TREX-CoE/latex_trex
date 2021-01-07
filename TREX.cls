@@ -1,5 +1,5 @@
 \ProvidesClass{TREX}
-\LoadClass[a4paper,twoside,final,12pt,headings=small]{report}
+\LoadClass[a4paper,twoside,final,12pt]{report}
 
 \usepackage[showframe,paper=a4paper,
 top=1.18in,bottom=1in,right=0.75in,left=0.75in]{geometry}% http://ctan.org/pkg/geometry
@@ -9,18 +9,26 @@ top=1.18in,bottom=1in,right=0.75in,left=0.75in]{geometry}% http://ctan.org/pkg/g
 \usepackage{fancyhdr}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+
+\renewcommand{\familydefault}{\sfdefault}
 
 \usepackage[printonlyused,nohyperlinks]{acronym}
 
 
-\usepackage[pdftex,hyperfigures,hyperindex,bookmarksnumbered,colorlinks, bookmarks, breaklinks, linktocpage,citecolor=blue,urlcolor=blue,linkcolor=black,pdftitle={TREX},pdfauthor={TREX}]{hyperref}
+\usepackage[pdftex, pdfusetitle, hyperfigures, hyperindex,
+bookmarksnumbered,colorlinks, bookmarks, breaklinks,
+linktocpage, citecolor=blue, urlcolor=blue, linkcolor=black]{hyperref}
+
 
 %\setlength{\headheight}{1cm}
 %\setlength{\footskip}{18mm}
 %\addtolength{\textheight}{-\footskip}
 
 
-%%--Set the section number depth.                                                             
+%%--Set the section number depth.
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{4}
 \setcounter{page}{2}
@@ -46,19 +54,18 @@ top=1.18in,bottom=1in,right=0.75in,left=0.75in]{geometry}% http://ctan.org/pkg/g
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 
+
+\definecolor{myblue}{HTML}{2F5496}
+\titleformat{\section}
+{\color{myblue}\normalfont\Large}
+{\color{myblue}\thesection}{1em}{}
+
+
 \makeatletter
 \makeindex
 \makeglossary
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
-\newcommand{\indic}{\mathtt{1}\!\!\mathtt{l}}
-\newcommand{\proba}{\mathbb{P}}
-\newcommand{\esper}{\mathbb{E}}
-\newcommand{\Nats}{I\!\!N}
-\newcommand{\nats}{I\!\!N}
-\newcommand{\Reals}{I\!\!R}
-\newcommand{\reals}{I\!\!R}
-\newcommand{\espalm}{\mathbb{E}_N^{o}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Floating figures
