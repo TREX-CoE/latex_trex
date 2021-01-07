@@ -1,0 +1,64 @@
+%% COMMANDS
+%%
+%% \acresetall	flushes the ’memory’ of the macro \ac (ie all "used" marks flushed)
+%%
+%% \ac{label}	singular (first time Full Name + (ACRO) and mark as used)
+%% \acp{label}	plural (as \ac but makes short and/or long forms into plurals)
+%%
+%% \acs{lable}	short (ACRO)
+%% \acf{lable}	“full acronym” (Full Name + (ACRO))
+%% \acl{lable}	long (_without_ ACRO)
+%%
+%% \acsp{label}	short plural (ACROs)
+%% \acfp{label}	“full acronym” plural (Full Names + (ACROs))
+%% \aclp{label}	long plural (_without_ ACRO)
+%%
+%% \acrodef{label}[acronym]{written out form}	definition
+%%		for example \acrodef{etacar}[$\eta$ Car]{Eta Carinae},
+%%		with the restriction that the label should be simple ASCII
+
+
+%% PACKAGE & OPTIONS
+%% acronym package must be loaded (in the preamble):
+%%    \usepackage[option1,option2,etc.]{acronym}
+%% OPTIONS:
+%%    footnote		The option footnote makes the full name appear as a
+%%			footnote.
+%%    nohyperlinks	If hyperref is loaded, all acronyms will link to their
+%%			glossary entry. With the option nohyperlinks these
+%%			linkscan be suppressed.
+%%    printonlyused	Only list used acronyms
+%%    withpage		In printonlyused-mode show the page number where
+%%			each acronym was first used.
+%%    smaller		Make the acronym appear smaller.
+%%    dua			The option dua stands for “don’t use acronyms”. It
+%%			leads to a redefinition of \ac and \acp, making the
+%%			full name appear all the time and suppressing all
+%%			acronyms but the explicity requested by \acf or \acfp.
+%%    nolist		The option nolist stands for “don’t write the list of
+%%			acronyms”.
+
+
+%% INCLUSION
+%%
+\section*{Abbreviations}
+\label{sec:abbrev}
+
+\begin{acronym}[TRUST-IT %width of the longest acronym should be matched here
+
+\acro{UT}{UNIVERSITEIT TWENTE}
+\acro{CNRS}{CENTRE NATIONAL DE LA RECHERCHE SCIENTIFIQUE CNRS}
+\acro{SISSA}{SCUOLA INTERNAZIONALE SUPERIORE DI STUDI AVANZATI DI TRIESTE}
+\acro{CINECA}{CINECA CONSORZIO INTERUNIVERSITARIO}
+\acro{FZJ}{FORSCHUNGSZENTRUM JULICH GMBH}
+\acro{MPG}{MAX-PLANCK-GESELLSCHAFT ZUR FORDERUNG DER WISSENSCHAFTEN EV}
+\acro{UVSQ}{UNIVERSITE DE VERSAILLES SAINT-QUENTIN-EN-YVELINES.}
+\acro{Megware}{MEGWARE COMPUTER VERTRIEB UND SERVICE GMBH}
+\acro{STUBA}{SLOVENSKA TECHNICKA UNIVERZITA V BRATISLAVE}
+\acro{UNIVIE}{UNIVERSITAT WIEN}
+\acro{TUL}{POLITECHNIKA LODZKA}
+\acro{TRUST-IT}{TRUST-IT SRL}
+
+
+\end{acronym}
+\clearpage

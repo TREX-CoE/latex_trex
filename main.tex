@@ -1,0 +1,35 @@
+\documentclass{TREX}
+
+\newcommand{\DelTitle}{Title of this deliverable}
+\newcommand{\DelNumber}{DX.X}
+\newcommand{\DelVersion}{0.X/1.0}
+
+
+\begin{document}
+
+\input{01-title}
+
+\fancyhead[L]{ \includegraphics[width=1cm]{images/trex-logo.png} }
+\fancyhead[R]{ \DelNumber -- \DelTitle }
+
+\fancyfoot[L]{
+\begin{table}{llr}
+\includegraphics[width=1cm]{images/EU_flag.png} &
+TREX: Targeting Real Chemical Accuracy at the Exascale project has received
+funding from the European Union Horizon 2020 research and innovation programme
+under Grant Agreement No. 952165.
+\end{table}
+}
+\fancyfoot[R]{ \thepage\ of \pageref{LastPage}}
+
+
+
+
+\input{02-info}
+\input{03-versioning}
+\input{04-abbreviations}
+\input{05-content}
+
+\end{document}
+
+
