@@ -36,3 +36,35 @@ $\Box$       & CO: Confidential, only for members of the consortium (including t
 
 \clearpage
 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Overleaf}
+\lhead{Guides and tutorials}
+
+
+\renewcommand{\footrulewidth}{1pt}
+
+\lhead{ \includegraphics[width=1in]{images/trex-logo.png} }
+\rhead{ \DelNumber -- \DelTitle }
+
+\lfoot{
+%\setlength{\tabcolsep}{0.3em}
+\begin{tabular*}{0.9\textwidth}{l @{\extracolsep{\fill}}l}
+\begin{tabular}{c}                                             
+\includegraphics[width=0.1\textwidth]{images/EU_flag.png} \\
+\end{tabular}
+& 
+\begin{tabular}{p{0.75\textwidth}}
+  \footnotesize
+TREX: Targeting Real Chemical Accuracy at the Exascale project  has received
+funding from the European Union Horizon 2020 research and       innovation program
+under Grant Agreement No. 952165.
+\end{tabular} 
+\end{tabular*}
+}
+
+\rfoot{ \thepage\ of \pageref{LastPage}}
+
+
+
+

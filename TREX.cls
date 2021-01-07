@@ -1,7 +1,7 @@
 \ProvidesClass{TREX}
-\LoadClass[a4paper,twoside,final,12pt]{report}
+\LoadClass[a4paper,twoside,final,12pt]{article}
 
-\usepackage[showframe,paper=a4paper,
+\usepackage[paper=a4paper,
 top=1.18in,bottom=1in,right=0.75in,left=0.75in]{geometry}% http://ctan.org/pkg/geometry
 \usepackage[utf8]{inputenc}
 \usepackage{lastpage}
@@ -10,7 +10,6 @@ top=1.18in,bottom=1in,right=0.75in,left=0.75in]{geometry}% http://ctan.org/pkg/g
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{titlesec}
-\usepackage{xcolor}
 \usepackage{colortbl}
 
 \renewcommand{\familydefault}{\sfdefault}
@@ -22,10 +21,20 @@ top=1.18in,bottom=1in,right=0.75in,left=0.75in]{geometry}% http://ctan.org/pkg/g
 bookmarksnumbered,colorlinks, bookmarks, breaklinks,
 linktocpage, citecolor=blue, urlcolor=blue, linkcolor=black]{hyperref}
 
+\usepackage[titles]{tocloft}
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\cftsecfont}{\normalfont}% titles in bold
+\renewcommand{\cftsecpagefont}{\normalfont}% page numbers in bold
+\renewcommand{\cftdotsep}{1}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}% dot leaders in bold
 
-%\setlength{\headheight}{1cm}
-%\setlength{\footskip}{18mm}
-%\addtolength{\textheight}{-\footskip}
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+
+
+
+\setlength{\headheight}{1cm}
+\setlength{\footskip}{2cm}
+\addtolength{\textheight}{-\footskip}
 
 
 %%--Set the section number depth.
@@ -51,10 +60,10 @@ linktocpage, citecolor=blue, urlcolor=blue, linkcolor=black]{hyperref}
 % Headers
 % --------------------------------------------
 \pagestyle{fancyplain}
-\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 
 
+\usepackage{xcolor}
 \definecolor{myblue}{HTML}{2F5496}
 \titleformat{\section}
 {\color{myblue}\normalfont\Large}
@@ -65,7 +74,26 @@ linktocpage, citecolor=blue, urlcolor=blue, linkcolor=black]{hyperref}
 \makeindex
 \makeglossary
 \setcounter{tocdepth}{4}
-\setcounter{secnumdepth}{4}
+\setcounter{secnumdepth}{1}
+
+% Table of contents with section*
+
+\usepackage{xparse}
+
+\let\oldsection\section
+\makeatletter
+\newcounter{@secnumdepth}
+\RenewDocumentCommand{\section}{s o m}{%
+  \IfBooleanTF{#1}
+    {\setcounter{@secnumdepth}{\value{secnumdepth}}% Store secnumdepth
+     \setcounter{secnumdepth}{0}% Print only up to \chapter numbers
+     \oldsection{#3}% \section*
+     \setcounter{secnumdepth}{\value{@secnumdepth}}}% Restore secnumdepth
+    {\IfValueTF{#2}% \section
+       {\oldsection[#2]{#3}}% \section[.]{..}
+       {\oldsection{#3}}}% \section{..}
+}
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Floating figures
@@ -79,42 +107,4 @@ linktocpage, citecolor=blue, urlcolor=blue, linkcolor=black]{hyperref}
 
 \endinput
 
-%% --The \tableofcontents.
-\renewcommand\tableofcontents{%
-  \renewcommand{\contentsname}{Table of Contents}
-  \if@twocolumn
-  \@restonecoltrue\onecolumn
-  \else
-  \@restonecolfalse
-  \fi
-  \oldchapter*{\contentsname
-    \@mkboth{\uppercase{\contentsname}}{\uppercase{\contentsname}}}%
-  \@starttoc{toc}%
-  \if@restonecol\twocolumn\fi}
-
-%% --The \listoffigures command.
-\renewcommand\listoffigures{%
-  \if@twocolumn
-  \@restonecoltrue\onecolumn
-  \else
-  \@restonecolfalse
-  \fi
-  \oldchapter*{\listfigurename
-    \@mkboth{\uppercase{\listfigurename}}{\uppercase{\listfigurename}}}%
-  \@starttoc{lof}%
-  \if@restonecol\twocolumn\fi}
-
-%% --The \listoftables command.
-\renewcommand\listoftables{%
-  \if@twocolumn%
-  \@restonecoltrue\onecolumn%
-  \else%
-  \@restonecolfalse%
-  \fi%
-  \oldchapter*{\listtablename%
-    \@mkboth{\uppercase{\listtablename}}{\uppercase{\listtablename}}}%
-  \@starttoc{lot}%
-  \if@restonecol\twocolumn\fi}
-
-\endinput
 

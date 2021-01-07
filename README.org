@@ -1,0 +1,33 @@
+#+TITLE: TREX Reports latex template
+
+* Installation
+
+To use this template, create a new GitHub repository by using this one
+as a template, and then modify the content of the files.
+
+** List of required LaTex Packages
+
+   - lastpage
+   - graphicx
+   - fancyhdr
+   - amsmath
+   - amssymb
+   - titlesec
+   - colortbl
+   - acronym
+   - tocloft
+   - hyperref
+   - xcolor
+   - xparse
+
+
+
+   
+* Manual
+
+  Edit the ~Makefile~ and provide:
+  - the Work Package (~WP~) number
+  - the ~NUMBER~ of the deliverable
+  - a ~TITLE~
+  First, compile the example provided using ~make~.
+  The output 
