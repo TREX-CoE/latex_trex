@@ -6,15 +6,15 @@ NAME=D$(WP).$(NUMBER)-$(TITLE)
 TEX=$(NAME).tex
 PDF=$(NAME).pdf
 
-default:
+default: $(TEX) references.bib
 	pdflatex $(TEX)
 	pdflatex $(TEX)
 	bibtex $(TEX)
 	pdflatex $(TEX)
 
 create:
-	@if [[ -f $(TEX).tex ]] ; then \
-	echo  "File $(TEX).tex already exists) ; exit -1 ; \
-        else ; mv main.tex $(TEX).tex ; fi
+	@test -f $(TEX) && \
+	echo  "File $(TEX) already exists" ||\
+        cp main.tex $(TEX)
 
 
