@@ -5,7 +5,11 @@
   To use this template, create a new GitHub repository by using this one
   as a template.
 
-  Now, immediately create a /draft/ branch and a /final/ branch.
+  #+begin_important
+  Make sure that both the /draft/ and /final/ branches are imported by checking
+  the box when you create your repository. 
+  #+end_important
+
 
   In your new repository, start working on the /draft/ branch. When you submit
   the pdf for review, create a pull request to the /final/ branch from
