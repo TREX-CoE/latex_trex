@@ -11,6 +11,7 @@ top=1.18in,bottom=1in,right=0.75in,left=0.75in]{geometry}% http://ctan.org/pkg/g
 \usepackage{amssymb}
 \usepackage{titlesec}
 \usepackage{colortbl}
+\usepackage{lastpage}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -32,9 +33,10 @@ linktocpage, citecolor=blue, urlcolor=blue, linkcolor=black]{hyperref}
 
 
 
-\setlength{\headheight}{1cm}
+\setlength{\headheight}{1.2cm}
 \setlength{\footskip}{2cm}
 \addtolength{\textheight}{-\footskip}
+
 
 
 %%--Set the section number depth.

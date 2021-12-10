@@ -1,4 +1,7 @@
 \documentclass{TREX}
+\usepackage{minted}
+\usepackage{longtable}
+\usepackage{color}
 
 %------
 % TODO : Fill in this information
@@ -48,6 +51,8 @@
 \begin{document}
 
 \input{01-title}
+\pagenumbering{roman}
+\rfoot{ \thepage\ of \pageref*{EndInfo}}
 \input{02-info}
 \input{03-versioning}
 \input{04-abbreviations}
@@ -57,14 +62,24 @@
 \listoffigures
 \clearpage
 \listoftables  
+\label{EndInfo}
 \clearpage
-
+\pagenumbering{arabic}
+\rfoot{ \thepage\ of \pageref*{EndContent}}
 \input{05-content}
+\label{EndContent}
+\newpage
 
+
+\rfoot{ \thepage\ of \pageref*{EndBib}}
 \bibliography{references}
-
+\label{EndRef}
+\pagenumbering{Roman}
+\rfoot{ \thepage\ of \pageref*{EndApp}}
+\newpage
 \appendix
 \input{appendix.tex}
+\label{EndApp}
 
 
 \end{document}
